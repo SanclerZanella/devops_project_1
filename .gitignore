@@ -1,0 +1,10 @@
+core.Microsoft*
+core.python*
+env.py
+__pycache__/
+*.py[cod]
+node_modules/
+.pytest_cache
+unit
+pytest.ini
+conftest.py
