@@ -34,8 +34,10 @@ class RestFactory:
     
     def __register_blueprints(self):
         from routes.post_method.routes import post_method
+        from routes.get_method.routes import get_method
+        from routes.put_method.routes import put_method
 
-        blueprints = [post_method]
+        blueprints = [post_method, get_method, put_method]
 
         if blueprints is None or len(blueprints) == 0:
             pass

@@ -3,29 +3,28 @@ import pymysql
 from utils.db_ops import DBOps
 
 # Flask Blueprint
-post_method = Blueprint("post_method", __name__)
+get_method = Blueprint("get_method", __name__)
 
 
-@post_method.route("/users/<user_id>/", methods=["POST"])
-def post_route(user_id):
+@get_method.route("/users/<user_id>/", methods=["PUT"])
+def get_route(user_id):
     """
-    Insert user in the database
+    Display user from the database
     """
 
     db_ops = DBOps()
 
     try:
         user_exist = db_ops.is_user_in_db(user_id)
-        if user_exist:
-            response = {"Status": "ERROR", "reason": "ID already exists"}
+        if user_exist is False:
+            response = {"Status": "ERROR", "reason": "No such ID"}
             return jsonify(response), f'code: {500}'
 
-        data = request.get_json()
-        user_name = data.get('user_name')
+        user = db_ops.retrieve_user(user_id)
 
-        db_ops.insert_user(user_id, user_name)
+        id_user, user_name = user
 
-        response = {"Status": "OK", "User_added": f"{user_name}"}
+        response = {"Status": "OK", "User_name": f"{user_name}"}
         return jsonify(response), f'code: {200}'
 
     except pymysql.Error as e:
