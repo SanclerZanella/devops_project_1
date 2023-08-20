@@ -1,7 +1,7 @@
 from flask import Flask
 
 
-class AppFactory:
+class UIFactory:
     def __init__(self, app=__name__, host="", port=0, isDebug=True, blueprint_list=None):
         self.app = Flask(app)
         self.host = host
@@ -9,6 +9,7 @@ class AppFactory:
         self.isDebug = isDebug
         self.blueprint_list = blueprint_list
 
+    
     def __create_app(self):
         self.__register_blueprints()
         return self.app
@@ -22,6 +23,7 @@ class AppFactory:
 
     def start_app(self):
         app = self.__create_app()
+
         app.run(host=self.host,
                 port=self.port,
                 debug=self.isDebug)

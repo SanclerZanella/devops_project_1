@@ -2,7 +2,7 @@ version: '3'
 services:
   api_app:
     build:
-      context: ./api_app
+      context: ./rest_app
     ports:
       - "5000:5000"
 
