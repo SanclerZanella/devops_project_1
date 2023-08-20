@@ -11,7 +11,7 @@ class CreateTables:
             table_name = table
             query = f'''
             CREATE TABLE IF NOT EXISTS {table_name} (
-                user_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+                user_id INT PRIMARY KEY NOT NULL,
                 user_name VARCHAR(50) NOT NULL,
                 creation_date VARCHAR(50)
             )
