@@ -3,11 +3,11 @@ import pymysql
 from utils.db_ops import DBOps
 
 # Flask Blueprint
-get_method = Blueprint("get_method", __name__)
+delete_method = Blueprint("delete_method", __name__)
 
 
-@get_method.route("/users/<user_id>/", methods=["GET"])
-def get_route(user_id):
+@delete_method.route("/users/<user_id>/", methods=["DELETE"])
+def delete_route(user_id):
     """
     Display user from the database
     """
@@ -19,13 +19,11 @@ def get_route(user_id):
         if user_exist is False:
             response = {"Status": "ERROR", "reason": "No such ID"}
             return jsonify(response), f'code: {500}'
+        else:
+            db_ops.delete_user(user_id)
 
-        user = db_ops.retrieve_user(user_id)
-
-        id_user, user_name = user
-
-        response = {"Status": "OK", "User_name": f"{user_name}"}
-        return jsonify(response), f'code: {200}'
+            response = {"Status": "OK", "User_deleted": f"{user_id}"}
+            return jsonify(response), f'code: {200}'
 
     except pymysql.Error as e:
         response = {"Status": "ERROR", "reason": f'{e}'}

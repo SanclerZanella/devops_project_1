@@ -39,3 +39,9 @@ class DBOps:
             update_query = "UPDATE users SET user_name = %s WHERE user_id = %s"
             cursor.execute(update_query, (value, id))
             self.db_connection.commit()
+
+    def delete_user(self, id):
+        with self.db_connection.cursor() as cursor:
+            update_query = "DELETE FROM users WHERE user_id = %s"
+            cursor.execute(update_query, (id,))
+            self.db_connection.commit()
