@@ -18,7 +18,7 @@ def post_route(user_id):
         user_exist = db_ops.is_user_in_db(user_id)
         if user_exist:
             response = {"Status": "ERROR", "reason": "ID already exists"}
-            return jsonify(response), f'code: {500}'
+            return jsonify(response), 500
 
         data = request.get_json()
         user_name = data.get('user_name')
@@ -26,8 +26,8 @@ def post_route(user_id):
         db_ops.insert_user(user_id, user_name)
 
         response = {"Status": "OK", "User_added": f"{user_name}"}
-        return jsonify(response), f'code: {200}'
+        return jsonify(response), 200
 
     except pymysql.Error as e:
         response = {"Status": "ERROR", "reason": f'{e}'}
-        return jsonify(response), f'code: {500}'
+        return jsonify(response), 500

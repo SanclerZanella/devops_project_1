@@ -2,7 +2,7 @@
 FROM python:3.11.0
 
 # Working directory in the container
-WORKDIR /app
+WORKDIR /ui_app
 
 ENV FLASK_APP=app.py
 

@@ -8,7 +8,6 @@ class UIFactory:
         self.port = port
         self.isDebug = isDebug
         self.blueprint_list = blueprint_list
-
     
     def __create_app(self):
         self.__register_blueprints()

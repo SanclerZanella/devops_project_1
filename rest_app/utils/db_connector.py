@@ -3,14 +3,12 @@ import pymysql
 if os.path.exists('env.py'):
     import env
 
-
 class ConnectDB:
-    def __init__(self, app=None):
-        self.app = app
-        self.db_host = os.environ.get("DB_HOST")
-        self.db_user = os.environ.get("DB_USER")
-        self.db_password = os.environ.get("DB_PASSWORD")
-        self.db_name = os.environ.get("DB_NAME")
+    def __init__(self):
+        self.db_host = os.getenv("DB_HOST")
+        self.db_user = os.getenv("DB_USER")
+        self.db_password = os.getenv("DB_PASSWORD")
+        self.db_name = os.getenv("DB_NAME")
 
     def connect_db(self):
         return pymysql.connect(

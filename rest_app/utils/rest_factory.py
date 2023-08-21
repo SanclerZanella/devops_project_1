@@ -16,7 +16,7 @@ class RestFactory:
         self.port = port
         self.isDebug = isDebug
 
-        self.db = ConnectDB(self.app)
+        self.db = ConnectDB()
         self.db_conn = self.db.connect_db()
 
     def __create_app(self):

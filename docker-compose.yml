@@ -1,13 +1,17 @@
 version: '3'
 services:
-  api_app:
+  rest_app:
     build:
       context: ./rest_app
     ports:
       - "5000:5000"
+    expose:
+      - 5000
 
   ui_app:
     build:
       context: ./ui_app
     ports:
       - "5001:5001"
+    expose:
+      - 5001
