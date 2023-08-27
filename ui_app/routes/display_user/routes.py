@@ -6,14 +6,13 @@ import requests
 display_user_name = Blueprint("display_user_name", __name__)
 
 
-# @display_user_name.route("/users/get_user_data/<user_id>")
 @display_user_name.route("/users/get_user_data/<user_id>")
 def display_user_route(user_id):
     """
     Returns JSON
     """
 
-    get_user_endpoint = f"http://rest_app:5000/users/{user_id}/"
+    get_user_endpoint = f"http://rest_app:5000/users/{user_id}"
 
     try:
         response = requests.get(get_user_endpoint, stream=True)

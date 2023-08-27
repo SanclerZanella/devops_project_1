@@ -6,7 +6,7 @@ from utils.db_ops import DBOps
 get_method = Blueprint("get_method", __name__)
 
 
-@get_method.route("/users/<user_id>/", methods=["GET"])
+@get_method.route("/users/<user_id>", methods=["GET"])
 def get_route(user_id):
     """
     Display user from the database

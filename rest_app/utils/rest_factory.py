@@ -3,7 +3,7 @@ from flask import Flask
 from .db_connector import ConnectDB
 from .tables_creator import CreateTables
 if os.path.exists('env.py'):
-    pass
+    import env
 
 
 db = ConnectDB()

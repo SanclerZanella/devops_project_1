@@ -6,6 +6,9 @@
       <sourceFolder url="file://$MODULE_DIR$/rest_app/routes" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rest_app/routes/post_method" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/rest_app/utils" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ui_app" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ui_app/routes" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ui_app/routes/display_user" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.11 (project_1)" jdkType="Python SDK" />

@@ -6,7 +6,7 @@ from utils.db_ops import DBOps
 delete_method = Blueprint("delete_method", __name__)
 
 
-@delete_method.route("/users/<user_id>/", methods=["DELETE"])
+@delete_method.route("/users/<user_id>", methods=["DELETE"])
 def delete_route(user_id):
     """
     Display user from the database

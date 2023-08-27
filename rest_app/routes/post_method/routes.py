@@ -6,7 +6,7 @@ from utils.db_ops import DBOps
 post_method = Blueprint("post_method", __name__)
 
 
-@post_method.route("/users/<user_id>/", methods=["POST"])
+@post_method.route("/users/<user_id>", methods=["POST"])
 def post_route(user_id):
     """
     Insert user in the database

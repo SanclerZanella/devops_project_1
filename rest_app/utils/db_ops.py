@@ -1,5 +1,4 @@
 from flask import current_app
-import pymysql
 import datetime
 
 
@@ -9,7 +8,6 @@ class DBOps:
         self.db_connection = self.app.DB_CONN
 
     def is_user_in_db(self, id):
-        user_exists = None
         with self.db_connection.cursor() as cursor:
             select_query = "SELECT user_id FROM users WHERE user_id = %s"
             cursor.execute(select_query, (id,))
@@ -42,6 +40,6 @@ class DBOps:
 
     def delete_user(self, id):
         with self.db_connection.cursor() as cursor:
-            update_query = "DELETE FROM users WHERE user_id = %s"
-            cursor.execute(update_query, (id,))
+            delete_query = "DELETE FROM users WHERE user_id = %s"
+            cursor.execute(delete_query, (id,))
             self.db_connection.commit()
